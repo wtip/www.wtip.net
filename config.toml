@@ -1,0 +1,72 @@
+baseurl = "https://www.wtip.net"
+DefaultContentLanguage = "en"
+#DefaultContentLanguage = "ja"
+title = "wtip.net"
+theme = "beautifulhugo"
+metaDataFormat = "yaml"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+#disqusShortname = "XXX"
+googleAnalytics = "UA-3958649-9"
+enableEmoji = true
+
+[Params]
+#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  subtitle = "william's technology in practice"
+  logo = "images/logo2.png"
+  favicon = "images/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = false
+  readingTime = true
+  useHLJS = false
+  socialShare = false
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+[permalinks]
+  post = "/blog/:year/:month/:title/"
+  page = "/:slug/"
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Author]
+  name = "William Cooley"
+  website = "https://www.wtip.net"
+  email = "websitecontact+wtipnet@wtip.net"
+  googleplus = "+WilliamCooley" # or xxxxxxxxxxxxxxxxxxxxx
+  github = "wtip"
+  gitlab = "wtip"
+  linkedin = "williamwtip"
+
+[[menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "Contact"
+    url = "contact/"
+    weight = 3
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 2
+
+[blackfriday]
+extensions = ["hardLineBreak"]
