@@ -4,12 +4,12 @@
 ![Headshot of William Cooley](/images/William_headshot-square.jpg)
 
 ## About Me
-Hello, I'm **William Cooley**, and this is my personal website.
+Hello, I'm **William Cooley**, and this is my personal website.  
 I currently work as a **[DevOps](https://www.redhat.com/en/topics/devops)** Engineer and am located in Rochester, NY, USA.
 
 My previous work experience includes running a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) security [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) business and providing [IT](https://en.wikipedia.org/wiki/Information_technology) consulting services.
 
-I enjoy finding [open-source](https://en.wikipedia.org/wiki/Open-source_model) solutions to technology problems.
+I enjoy finding [open-source](https://en.wikipedia.org/wiki/Open-source_model) solutions to technology problems.  
 Some of my experience includes:
 
 - Linux - [Ubuntu](https://www.ubuntu.com/) and CentOS system administration
