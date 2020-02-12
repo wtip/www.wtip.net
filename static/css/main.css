@@ -352,6 +352,9 @@ footer .theme-by {
   border-bottom: 0;
 }
 
+.post-preview .post-entry a {
+  color: #008AFF;
+}
 .post-preview a {
   text-decoration: none;
   color: #404040;
