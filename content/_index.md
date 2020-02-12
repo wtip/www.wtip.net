@@ -1,5 +1,5 @@
 ---
-
+title: About William Cooley
 ---
 ![Headshot of William Cooley](/images/William_headshot-square.jpg)
 
