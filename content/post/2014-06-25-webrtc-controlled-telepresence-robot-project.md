@@ -10,7 +10,7 @@ This is a short video overview of a WebRTC controlled Telepresence Robot that I 
 
 {{< youtube rtgysHYEnNo >}}
 -
-
+<!--more-->
 Here are links to some of the things I mentioned in the video:
 
 - http://www.webrtc.org/ 
