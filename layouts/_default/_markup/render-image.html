@@ -1,0 +1,7 @@
+{{ $myImg := .Page.Resources.GetMatch .Destination }}
+{{ $altText := .PlainText }}
+{{ $imgTitle := .Title }}
+{{ with $myImg }}
+<img src="{{ .Permalink }}" alt="{{ $altText }}" {{ with $imgTitle }} title="{{ . }}" {{ end }} width="{{ .Width }}">
+{{ else }}
+<img src="{{ .Destination | safeURL }}"  alt="{{ $.Text }}" />{{ end }}
