@@ -6,14 +6,12 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 <!-- count how many times we've called this shortcode; load the css if it's the first time -->
 {{- if not ($.Page.Scratch.Get "figurecount") }}<link rel="stylesheet" href="{{ "css/hugo-easy-gallery.css" | absURL}}" />{{ end }}
 {{- $.Page.Scratch.Add "figurecount" 1 -}}
-<!-- use either src or link-thumb for thumbnail image -->
-{{- $thumb := .Get "src" | default (printf "%s." (.Get "thumb") | replace (.Get "link") ".") }}
 <div class="box{{ with .Get "caption-position" }} fancy-figure caption-position-{{.}}{{end}}{{ with .Get "caption-effect" }} caption-effect-{{.}}{{end}}" {{ with .Get "width" }}style="max-width:{{.}}"{{end}}>
   <figure {{ with .Get "class" }}class="{{.}}"{{ end }} itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img"{{ if .Parent }} {{ with $.Page.Resources.GetMatch $thumb }} style="background-image: url('{{ .Permalink }}');"{{ end }}{{ end }}{{ with .Get "size" }} data-size="{{.}}"{{ end }}>
-      {{ $altText := .Get "caption" | default (.Get "alt") | default $thumb }}
-      {{ with $.Page.Resources.GetMatch $thumb }}
-      <img itemprop="thumbnail" src="{{ .Permalink }}" alt="{{$altText}}" /><!-- <img> hidden if in .gallery -->
+    <div class="img"{{ if .Parent }} {{ with $.Page.Resources.GetMatch (.Get "link") }} style="background-image: url('{{ (.Resize "800x").Permalink }}');"{{ end }}{{ end }}{{ with .Get "size" }} data-size="{{.}}"{{ end }}>
+      {{ $altText := .Get "caption" | default (.Get "alt") | default (.Get "link") }}
+      {{ with $.Page.Resources.GetMatch (.Get "link") }}
+      <img itemprop="thumbnail" src="{{ (.Resize "800x").Permalink }}" alt="{{$altText}}" /><!-- <img> hidden if in .gallery -->
       {{ end }}
     </div>
     {{ with $.Page.Resources.GetMatch (.Get "link") }}
