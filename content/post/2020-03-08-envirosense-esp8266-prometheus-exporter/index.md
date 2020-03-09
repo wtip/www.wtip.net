@@ -44,7 +44,7 @@ First you need to install the `esptool` python package to flash the new firmware
 Then you need to figure out which tool to use to interact with the [REPL](http://docs.micropython.org/en/latest/esp8266/tutorial/repl.html) shell and how to upload files to the board. I tried [ampy](https://github.com/scientifichackers/ampy), [rshell](https://github.com/wendlers/mpfshell) and finally settled on using [mpfshell](https://github.com/wendlers/mpfshell) for most of the project.  
 Having the flexibility to work with multiple files directly on the internal [filesystem](http://docs.micropython.org/en/latest/esp8266/tutorial/filesystem.html) is very different from Arduino where you have the IDE compile and upload your entire code base on every change.
 
-I mostly implemented *guage* metrics with the exception of the motion sensor that uses a [*counter*](https://prometheus.io/docs/concepts/metric_types/) metric.
+I mostly implemented [*guage*](https://prometheus.io/docs/concepts/metric_types/#gauge) metrics with the exception of the motion sensor that uses a [*counter*](https://prometheus.io/docs/concepts/metric_types/#counter) metric.
 The PIR sensor has an adjustable delay timer that is used to control how long the output remains high after motion has been detected. The minimum time is around 5 seconds. With a planned scrape (collection) interval of 60 seconds I wanted a way to track multiple motion events that might occur in a 60 second window. By counting the number of events I can increase my resolution beyond what I would get with a *guage* metric and a 1 minute collection gap.  
 Below is an example of the metrics being exposed.
 
