@@ -6,6 +6,7 @@ subtitle: Exporting ambient motion, temperature, humidity and barometric pressur
 tags:
   - prometheus
   - esp8266
+  - projects
 comments: false
 draft: false
 ---

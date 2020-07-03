@@ -4,6 +4,7 @@ title: "WebRTC controlled Telepresence Robot project"
 tags:
   - webrtc
   - robot
+  - projects
 draft: false
 ---
 This is a short video overview of a WebRTC controlled Telepresence Robot that I built using inexpensive components.
