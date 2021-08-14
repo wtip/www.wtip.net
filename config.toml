@@ -4,12 +4,7 @@ DefaultContentLanguage = "en"
 title = "wtip.net"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
-pygmentsStyle = "trac"
 pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-#pygmentsUseClassic = true
-#pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
 googleAnalytics = "UA-3958649-9"
 enableEmoji = true
@@ -68,3 +63,9 @@ enableEmoji = true
     name = "Tags"
     url = "tags"
     weight = 2
+
+[markup]
+[markup.highlight]
+codeFences = true
+lineNos = true
+lineNumbersInTable = true
