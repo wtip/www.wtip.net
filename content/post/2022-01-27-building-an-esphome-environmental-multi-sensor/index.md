@@ -23,7 +23,7 @@ So I decided to redesign the board and enclosure to use a better PIR sensor and 
 {{< gallery >}}
 {{< figure link="images/envirosense2-with-lid.jpg" caption="Assembled proto-board installed in 3D printed enclosure" caption-position="bottom" >}}
 {{< figure link="images/enivirosense2-pcb.jpg" caption="Assembled proto-board installed in case with lid removed" caption-position="bottom" >}}
-{{< figure link="images/perfy-layout.JPG" caption="Perf+ 2 board layout done with Perfy application" caption-position="bottom" >}}
+{{< figure link="images/perfy-board-layout.jpg" caption="Perf+ 2 board layout done with Perfy application" caption-position="bottom" >}}
 {{< figure link="images/Fusion360-screenshot1.JPG" caption="Enclosure design in Fusion 360" caption-position="bottom" >}}
 {{< figure link="images/Fusion360-screenshot2.JPG" caption="Fusion 360 enclosure render" caption-position="bottom" >}}
 {{< figure link="images/home-assistant-esphome-screenshot.JPG" caption="Home Assistant ESPHome screenshot" caption-position="bottom" >}}
