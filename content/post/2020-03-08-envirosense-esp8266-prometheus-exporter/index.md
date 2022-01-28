@@ -90,3 +90,7 @@ I watched the following [tutorial](https://www.youtube.com/watch?v=VVmOtM60VWw) 
 The low price of the NodeMCU is very enticing. However for a low production unit project like this I have a renewed appreciation for microcontrollers with good documentation and ecosystem. If I had to do this again I might look into Adafruit's [CircuitPython](https://circuitpython.org/) and line of compatible boards.
 
 I wasn't too happy with the proto-boards that I used. After spending quite a bit of time creating multiple revisions of the enclosure to nail down the fit, I realized that I was committing to continue to use the RadioShack boards for any additional units I might want to build in the future. The time it would take to redesign the enclosure wouldn't be worth the slight improvements I might gain from using a different proto-board.
+
+*Update: 2022-01-27*  
+Check out my updated hardware revision in the following post:
+[Building an ESPHome environmental multi-sensor](/blog/2022/01/building-an-esphome-environmental-multi-sensor/)
