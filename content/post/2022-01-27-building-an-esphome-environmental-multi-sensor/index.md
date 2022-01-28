@@ -24,9 +24,9 @@ So I decided to redesign the board and enclosure to use a better PIR sensor and 
 {{< figure link="images/envirosense2-with-lid.jpg" caption="Assembled proto-board installed in 3D printed enclosure" caption-position="bottom" >}}
 {{< figure link="images/enivirosense2-pcb.jpg" caption="Assembled proto-board installed in case with lid removed" caption-position="bottom" >}}
 {{< figure link="images/perfy-board-layout.jpg" caption="Perf+ 2 board layout done with Perfy application" caption-position="bottom" >}}
-{{< figure link="images/Fusion360-screenshot1.JPG" caption="Enclosure design in Fusion 360" caption-position="bottom" >}}
-{{< figure link="images/Fusion360-screenshot2.JPG" caption="Fusion 360 enclosure render" caption-position="bottom" >}}
-{{< figure link="images/home-assistant-esphome-screenshot.JPG" caption="Home Assistant ESPHome screenshot" caption-position="bottom" >}}
+{{< figure link="images/Fusion360-screen-capture1.jpg" caption="Enclosure design in Fusion 360" caption-position="bottom" >}}
+{{< figure link="images/Fusion360-screen-capture2.jpg" caption="Fusion 360 enclosure render" caption-position="bottom" >}}
+{{< figure link="images/home-assistant-esphome-screen.jpg" caption="Home Assistant ESPHome screenshot" caption-position="bottom" >}}
 {{< /gallery >}}
 I used some [Perf+ 2](https://www.crowdsupply.com/ben-wang/perf-2) wire free electronic prototyping board that I had picked up a while back. Unfortunately it looks like this is no longer available anywhere. There's a simple windows .NET based circuit design program called Perfy, that I used for the board layout.
 
