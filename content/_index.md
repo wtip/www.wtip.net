@@ -1,7 +1,7 @@
 ---
 title: About William Cooley
 ---
-![Headshot of William Cooley](/images/William_headshot-square.jpg)
+![Headshot of William Cooley](/images/headshot-2021-cricle.png)
 
 ## About Me
 Welcome to the personal website of **William Cooley**.  
