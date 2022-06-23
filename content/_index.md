@@ -6,8 +6,8 @@ title: About William Cooley
 ## About Me
 Welcome to the personal website of **William Cooley**.  
 
-Currently work as a Systems Engineer and am located in Rochester, NY, USA.  
-Have experience working in various System Administration, DevOps and Software development capacities.
+Currently working as a Systems Engineer and located in Rochester, NY, USA.  
+Have experience in various System Administration, DevOps and Software development capacities.
 Ran a SaaS business for a number of years, worked as a consultant and employee.
 
 I enjoy finding [open-source](https://en.wikipedia.org/wiki/Open-source_model) solutions to technology problems.  
