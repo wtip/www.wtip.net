@@ -55,10 +55,11 @@ wifi:
 logger:
 
 api:
-  password: !secret ota_password
+  encryption:
+    key: !secret api_key
 
 ota:
-  password: !secret api_password
+  password: !secret ota_password
 
 switch:
   - platform: restart
