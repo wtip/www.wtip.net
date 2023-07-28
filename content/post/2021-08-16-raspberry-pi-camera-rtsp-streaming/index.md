@@ -8,6 +8,7 @@ tags:
 comments: false
 draft: false
 ---
+*__Update July 2023:__ The setup instructions below work with Raspberry Pi OS (Legacy) based on Debian 10 (buster). For instructions that will work with Raspberry Pi OS based on Debian 11 (bullseye), please have a look at my [updated blog post here](/blog/2023/07/picamera2-rtsp-streaming-with-multiple-resolution-feeds/).*
 
 I was looking for a way to stream two H.264 video feeds from an old Raspberry Pi 2 and [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module-v2/) with the first feed being the highest resolution that I could achieve from the camera and the second being a lower resolution that would be more suitable for analysis.
 To monitor the Pi Camera and perform motion and AI object detection with a [Frigate](https://blakeblackshear.github.io/frigate/) NVR system, I wanted the feeds served from an RTSP server.
