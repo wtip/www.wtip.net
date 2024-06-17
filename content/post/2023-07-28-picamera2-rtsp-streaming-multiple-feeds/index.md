@@ -29,23 +29,22 @@ Review the [Picamera2 Library manual](https://datasheets.raspberrypi.com/camera/
 
 **4.)** Download and install [MediaMTX](https://github.com/bluenviron/mediamtx) (formerly rtsp-simple-server). Have a look at the [Systemd setup instructions](https://github.com/bluenviron/mediamtx#linux) in the project README.
 
-**5.)** Edit the `/usr/local/etc/mediamtx.yml` configuration.  
-The main thing that needs to be changed is the section under `paths:`
+**5.)** Edit the `/usr/local/etc/mediamtx.yml` configuration. My example below is based on MediaMTX v1.8.3  
+You'll want to update the section under `authInternalUsers:`. Under `user: any` I removed the `publish` action and added the following user config:
 ``` yaml
-paths:
-  all:
-    source: publisher
-    publishUser: myuser
-    publishPass: mypass
-    publishIPs: []
-    readUser:
-    readPass:
-    readIPs: []
+- user: myuser
+  pass: mypass
+  ips: []
+  permissions:
+  - action: publish
+```
+Then at the bottom of the example config file I added the following to the `paths:` section:
+``` yaml
   hqstream:
     runOnInit: python3 /root/picam_stream.py
     runOnInitRestart: yes
 ```
-Additionally I've disabled RTMP and HLS support since I don't need it.  
+Additionally I've disabled RTMP and HLS support since I don't need them.  
 My complete config is available in the [GitHub Gist](https://gist.github.com/wtip/02835ffb2057d5c189da4ea2ee1516c6#file-mediamtx-yml).
 
 Then enable and start the systemd service:
@@ -77,3 +76,5 @@ ln -s /dev/shm/camera.jpg /var/www/html/camera.jpg
 
 [^1]: https://www.raspberrypi.com/news/bullseye-camera-system/
 [^2]: https://github.com/raspberrypi/picamera2/releases/tag/v0.3.10
+
+*Revised article on 2024-06-17 with updated MediaMTX config*
