@@ -72,3 +72,7 @@ codeFences = true
 lineNos = true
 lineNumbersInTable = true
 noClasses = false
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

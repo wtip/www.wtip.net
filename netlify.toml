@@ -1,13 +1,14 @@
+[build.environment]
+GO_VERSION = "1.27.2"
+HUGO_VERSION = "0.168.0"
+NODE_VERSION = "24.21.0"
+TZ = "America/New_York"
+
 [build]
 publish = "public"
-command = "hugo"
+command = """\
+  git config --global core.quotepath false && \
+  hugo build --gc --minify --baseURL "${URL}"
+  """
 
-[context.production.environment]
-HUGO_VERSION = "0.168.0"
-HUGO_ENV = "production"
 
-[context.deploy-preview]
-command = "hugo -b $DEPLOY_PRIME_URL"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.168.0"
