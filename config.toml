@@ -49,7 +49,7 @@ enableEmoji = true
   email = "websitecontact+wtipnet@wtip.net"
   github = "wtip"
   gitlab = "wtip"
-  linkedin = "williamwtip"
+  linkedin = "https://www.linkedin.com/in/williamwtip"
 
 [[menu.main]]
     name = "Home"
