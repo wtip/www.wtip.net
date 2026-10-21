@@ -1,13 +1,13 @@
-baseurl = "https://www.wtip.net"
-DefaultContentLanguage = "en"
+baseURL = "https://www.wtip.net/"
+defaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "wtip.net"
 theme = "beautifulhugo"
-metaDataFormat = "yaml"
-pygmentsUseClasses = true
 #disqusShortname = "XXX"
-googleAnalytics = "G-B1JJ264BGD"
 enableEmoji = true
+
+[services.googleAnalytics]
+  id = "G-B1JJ264BGD"
 
 [Params]
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
@@ -23,6 +23,8 @@ enableEmoji = true
   useHLJS = false
   socialShare = false
   hideAuthor = true
+  colorScheme = "light"
+  mathEngine = "none"
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
 [permalinks]
@@ -41,7 +43,7 @@ enableEmoji = true
 #  src = "img/hexagon.jpg"
 #  desc = "Hexagon"
 
-[Author]
+[Params.author]
   name = "William Cooley"
   website = "https://www.wtip.net"
   email = "websitecontact+wtipnet@wtip.net"
@@ -69,3 +71,4 @@ enableEmoji = true
 codeFences = true
 lineNos = true
 lineNumbersInTable = true
+noClasses = false

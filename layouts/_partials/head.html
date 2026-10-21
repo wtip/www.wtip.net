@@ -1,0 +1,153 @@
+{{- $title := "" }}
+{{- $description := "" }}
+{{- if eq .Kind "taxonomy" }}
+  {{- $most_used := slice }}
+  {{- range $key, $value := .Data.Terms.ByCount }}
+    {{- $most_used = $most_used | append $value.Name }}
+  {{- end }}
+  {{- if not $most_used }}
+    {{- $description = printf "A full overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular | truncate 180 }}
+  {{- else }}
+    {{- $description = printf "A full overview of all pages with %s, ordered by %s, such as: %s" .Data.Plural .Data.Singular (delimit $most_used ", " ", and ") | truncate 180 }}
+  {{- end }}
+  {{- $title = printf "Overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular }}
+{{- else if eq .Kind "term" }}
+  {{- $description = printf "Overview of all pages with the %s #%s, such as: %s" .Data.Singular $.Title (index .Pages 0).Title | truncate 160 }}
+  {{- $title = printf "Overview of all pages with the %s #%s" .Data.Singular $.Title }}
+{{- else }}
+  {{- $description = .Description | default .Params.subtitle | default .Summary }}
+  {{- $title = .Title | default .Site.Title }}
+{{- end }}
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- Site Title, Description, Author, and Favicon -->
+
+{{ if .IsHome }}
+  <title>{{ $title }}{{ if and $title .Site.Title (ne $title .Site.Title) }} - {{ .Site.Title }}{{ end }}</title>
+{{ else }}
+  {{ $suffix := .Site.Params.homeTitle | default .Site.Title }}
+  <title>{{ $title }}{{ if and $suffix (ne $title $suffix) }} - {{ $suffix }}{{ end }}</title>
+{{ end }}
+
+{{- with $description }}
+  <meta name="description" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.author.name }}
+  <meta name="author" content="{{ . }}"/>
+{{- end }}
+{{- partial "seo/main.html" . }}  
+{{- with .Site.Params.favicon }}
+  <link href='{{ strings.TrimPrefix "/" . | relURL }}' rel='icon' type='image/x-icon'/>
+{{- end -}}
+<!-- Hugo Version number -->
+{{ hugo.Generator -}}
+<!-- Links and stylesheets -->
+{{ with .Site.Home.OutputFormats.Get "RSS" }}<link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">{{ end }}
+
+{{ $mathEngine := (partial "func/load-math.html" .).engine }}
+{{- /* KaTeX and Font Awesome CSS reference font files by relative path, so
+       their self-hosted copies stay in static/. Everything else goes through
+       the vendor partial. */ -}}
+{{- if .Site.Params.selfHosted -}}
+  {{- if eq $mathEngine "katex" }}
+    <link rel="stylesheet" href="{{ "css/katex.min.css" | relURL }}" />
+  {{- end }}
+  <link rel="stylesheet" href="{{ "fontawesome/css/all.min.css" | relURL }}" />
+{{- else -}}
+  {{- if eq $mathEngine "katex" }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css" integrity="sha384-UA8juhPf75SzzAMA/4fo3yOU7sBJ0om7SCD2GHq0fZqZco6tr1UCV7nUbk9J90JM" crossorigin="anonymous">
+  {{- end }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.2.0/css/all.css" integrity="sha384-EXatlQyrOJgDaM9/a74ArMzy7/2bTMSrZj8ID1IPeVmc3GncfCugefCFWSLj8JL/" crossorigin="anonymous">
+{{- end }}
+  {{ partial "vendor.html" "bootstrap-css" }}
+{{- if eq $mathEngine "mathjax" }}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+{{- end }}
+
+  {{- /* Theme CSS is concatenated into one bundle; syntax-dark and print stay
+         separate because JS toggles the first and the second is media=print. */ -}}
+  {{- $css := slice "css/main.css" }}
+  {{- if ne ($.Param "colorScheme" | default "auto") "light" }}{{ $css = $css | append "css/dark.css" }}{{ end }}
+  {{- if .Site.Params.staticman }}{{ $css = $css | append "css/staticman.css" }}{{ end }}
+  {{- if not ($.Param "useHLJS") }}{{ $css = $css | append "css/syntax.css" }}{{ end }}
+  {{- $css = $css | append "css/codeblock.css" }}
+  {{- if ne ($.Param "toc") false }}{{ $css = $css | append "css/toc.css" }}{{ end }}
+  {{ partial "css.html" (dict "paths" $css) }}
+  {{ partial "css.html" (dict "path" "css/print.css" "media" "print") }}
+
+  {{- /* Assets that shortcodes request through Page.Store. The block runs
+         after the body has rendered, so the flags are final. Pager pages
+         share one Page, so the key carries the pager number. */ -}}
+  {{- $deferKey := .Permalink }}
+  {{- if in (slice "home" "section" "taxonomy" "term") .Kind }}{{ $deferKey = printf "%s#%d" $deferKey (partial "func/paginate.html" .).PageNumber }}{{ end }}
+  {{- $deferArgs := dict "key" $deferKey "data" (dict "page" .) }}
+  {{ with (templates.Defer $deferArgs) }}
+    {{- $features := partial "func/page-features.html" .page }}
+    {{- if $features.figure }}{{ partial "css.html" "css/hugo-easy-gallery.css" }}{{ end }}
+    {{- if $features.mermaid }}
+      {{ partial "js.html" (dict "path" "js/mermaid.js" "defer" true "minify" false) }}
+      {{ partial "js.html" (dict "path" "js/mermaid-render.js" "defer" true) }}
+    {{- end }}
+    {{- if $features.tabsSync }}{{ partial "js.html" (dict "path" "js/tabs-sync.js" "defer" true) }}{{ end }}
+  {{ end }}
+
+  {{- if .Site.Params.selfHosted -}}
+  <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" />
+  {{- else -}}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" />
+  {{- end -}}
+
+  {{- $colorScheme := $.Param "colorScheme" | default "auto" -}}
+  {{- /* In "auto" mode the dark sheet is gated by the media query, so it never applies before JS runs. */ -}}
+  {{- $darkMedia := cond (eq $colorScheme "auto") "(prefers-color-scheme: dark)" "all" -}}
+  {{- if $.Param "useHLJS" }}
+  {{ partial "vendor.html" "hljs-css" }}
+  {{- if ne $colorScheme "light" }}
+  {{ partial "vendor.html" (dict "name" "hljs-dark-css" "id" "hljs-dark" "media" $darkMedia) }}
+  {{- end -}}
+  {{- else if ne $colorScheme "light" -}}
+  {{ partial "css.html" (dict "path" "css/syntax-dark.css" "id" "hljs-dark" "media" $darkMedia) }}
+  {{- end }}
+  {{- if eq $colorScheme "auto" }}
+  <script>
+    // The link exists only from here on, so a saved theme must override the media query now.
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var hljsDark = document.getElementById('hljs-dark');
+      if (hljsDark && (saved === 'dark' || saved === 'light')) {
+        hljsDark.media = (saved === 'dark') ? 'all' : 'not all';
+      }
+    })();
+  </script>
+  {{- end }}
+
+  {{- if .Site.Params.staticman.recaptcha -}}
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  {{- end -}}
+
+  {{ partial "vendor.html" "photoswipe-css" }}
+
+  {{- with .Page.ExpiryDate -}}
+  {{ partial "meta-robot-unavailable-after.html" . }}
+  {{- end }}
+
+  {{- partial "seo/meta/meta-robots.html" . }}
+
+  {{- partial "head_custom.html" . }}
+{{- if not hugo.IsServer -}}
+  {{ partial "google_analytics.html" . }}
+{{- end -}}

@@ -1,0 +1,168 @@
+/* Site-specific styling layered over the current Beautiful Hugo assets. */
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.content-section {
+  font-family: 'Raleway', sans-serif;
+}
+
+:not(pre) > code {
+  padding: 2px 4px;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.intro-header .page-heading h1 {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .intro-header .page-heading h1 {
+    font-size: 80px;
+  }
+}
+
+a,
+p a {
+  color: #008aff;
+}
+
+a:hover,
+a:focus {
+  color: #0085a1;
+}
+
+.container[role="main"] {
+  flex: 1 0 auto;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+  .container[role="main"] {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.main-content {
+  padding-top: 80px;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-content {
+    padding-top: 130px;
+  }
+}
+
+.main-explain-area,
+.navbar-custom,
+footer .copyright,
+.post-preview .post-entry,
+.blog-tags,
+.intro-header .page-heading .page-subheading,
+.intro-header .post-heading .post-subheading,
+.intro-header .img-desc,
+.post-pager li a,
+.post-pager li button,
+.disqus-comments button {
+  font-family: 'Raleway', sans-serif;
+}
+
+.blog-tags {
+  color: #999;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.blog-tags a {
+  color: #008aff;
+  padding: 0 5px;
+}
+
+.blog-tags a:hover {
+  border-radius: 2px;
+  color: #008aff;
+  background-color: #ccc;
+}
+
+.navbar-custom {
+  background: #2c3e50;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .theme-toggle {
+  color: #fff;
+}
+
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus,
+.navbar-custom .theme-toggle:hover,
+.navbar-custom .theme-toggle:focus {
+  color: #0085a1;
+}
+
+.navbar-custom .dropdown-menu,
+.navbar-custom .dropdown-item {
+  background: #2c3e50;
+}
+
+.navbar-custom .dropdown-item {
+  color: #fff;
+}
+
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  color: #0085a1;
+  background: #eee;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.post-preview .post-entry a {
+  color: #008aff;
+}
+
+.post-entry,
+.blog-post {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+}
+
+.post-image {
+  margin-top: -35px;
+  margin-left: 0;
+  filter: grayscale(90%);
+}
+
+.post-image:hover {
+  filter: grayscale(0%);
+}
+
+.post-image img,
+.post-image video {
+  border-radius: 100px;
+}
+
+@media only screen and (max-width: 500px) {
+  .post-image {
+    margin-top: 0;
+  }
+}

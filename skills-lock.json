@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "hugo": {
+      "source": "alahmadiq8/skills",
+      "sourceType": "github",
+      "skillPath": "skills/hugo/SKILL.md",
+      "computedHash": "19a0bf3dae5cedff33498a3be5812248f2e59ac804e19438683148724b6551d9"
+    }
+  }
+}
